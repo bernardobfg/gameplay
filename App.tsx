@@ -9,7 +9,6 @@ import { Background } from './src/components/Background';
 import { AuthProvider } from './src/hooks/auth';
 
 export default function App() {
-
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
