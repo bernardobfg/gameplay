@@ -7,10 +7,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage"
 import { api } from '../services/api';
 import { COLLECTION_USER } from '../configs/database';
 
-const {REDIRECT_URI} = process.env
-const {SCOPE} = process.env
-const {RESPONSE_TYPE} = process.env
-const {CLIENT_ID} = process.env
+const { REDIRECT_URI } = process.env
+const { SCOPE } = process.env
+const { RESPONSE_TYPE } = process.env
+const { CLIENT_ID } = process.env
 const { CDN_IMAGE } = process.env
 
 type User = {
@@ -33,6 +33,7 @@ type AuthorizationResponse = AuthSession.AuthSessionResult & {
 type AuthContextData = {
   user: User;
   signIn: () => Promise<void>;
+  signOut: () => Promise<void>;
   loading: boolean;
 }
 
@@ -42,15 +43,15 @@ type AuthProviderProps = {
   children: ReactNode;
 }
 
-export function AuthProvider({children}: AuthProviderProps) {
+export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User>({} as User);
   const [loading, setLoading] = useState(false);
 
-  async function loadUserStorageData(){
+  async function loadUserStorageData() {
     const storage = await AsyncStorage.getItem(COLLECTION_USER);
 
     if (storage) {
-      
+
       const userLogged = JSON.parse(storage) as User;
       api.defaults.headers.common['Authorization'] = `Bearer ${userLogged.token}`
       setUser(userLogged);
@@ -65,11 +66,11 @@ export function AuthProvider({children}: AuthProviderProps) {
     try {
       setLoading(true);
       const authUrl = `${api.defaults.baseURL}/oauth2/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`
-      const {type, params,} = await AuthSession.startAsync({
+      const { type, params, } = await AuthSession.startAsync({
         authUrl
       }) as AuthorizationResponse
       if (type === 'success' && !params.error) {
-        
+
         const { access_token } = params;
         api.defaults.headers.common['Authorization'] = `Bearer ${access_token}`
         const userInfo = await api.get('/users/@me');
@@ -97,11 +98,15 @@ export function AuthProvider({children}: AuthProviderProps) {
     }
 
   }
+  async function signOut() {
+    await AsyncStorage.removeItem(COLLECTION_USER);
+    setUser({} as User);
+  }
 
 
   return (
-    <AuthContext.Provider value={{ user, signIn, loading }}>
-      { children }
+    <AuthContext.Provider value={{ user, signIn, signOut, loading }}>
+      {children}
     </AuthContext.Provider>
   );
 }
