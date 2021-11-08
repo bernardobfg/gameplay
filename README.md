@@ -13,7 +13,7 @@
  <br/>
   
   
-![letmeask](https://user-images.githubusercontent.com/64651224/123527286-96f49200-d6b4-11eb-90a2-78305d05ca39.PNG)
+![gameplay](https://github.com/bernardobfg/gameplay/blob/main/src/assets/gameplay_device.png)
 ## 🪂 Projeto 
 Projeto realizado durante a Next Level Week 6, com a ideia de criar um sistema de agendamento de jogatina entre amigos
 
