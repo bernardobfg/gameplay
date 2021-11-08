@@ -1,7 +1,7 @@
-# 🎮 Gameplay
+# 🎮 gameplay
 
 <p align="center">&nbsp;&nbsp;&nbsp;
-<a href="#-letmeask">Gameplay</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#-gameplay">Gameplay</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#%EF%B8%8F--tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#-comece-a-usar">Comece a usar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -12,8 +12,10 @@
  <br/>
  <br/>
   
-  
-![gameplay](https://github.com/bernardobfg/gameplay/blob/main/src/assets/gameplay_device.png)
+ <div align="center">
+  <img src="https://github.com/bernardobfg/gameplay/blob/main/src/assets/gameplay_device.png" alt="gameplay"/>
+</div>
+
 ## 🪂 Projeto 
 Projeto realizado durante a Next Level Week 6, com a ideia de criar um sistema de agendamento de jogatina entre amigos
 
@@ -33,7 +35,7 @@ Projeto realizado durante a Next Level Week 6, com a ideia de criar um sistema d
 * Crie uma conta no expo [expo](https://expo.dev/)
 * Clone o projeto
 ```bash
-git clone https://github.com/bernardobfg/nlw-Letmeask/
+git clone https://github.com/bernardobfg/gameplay/
 ```
 * Entre na pasta do projeto
 ```bash
