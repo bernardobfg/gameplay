@@ -1,4 +1,4 @@
-# 🎮 gameplay
+# 🎮 Gameplay
 
 <p align="center">&nbsp;&nbsp;&nbsp;
 <a href="#-gameplay">Gameplay</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
